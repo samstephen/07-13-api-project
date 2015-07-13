@@ -1,0 +1,20 @@
+<%= erb :"main/header" %>
+<!-- show of user's profile, can change user's name and delete user from options given in profile -->
+
+<h2>
+	<%= @user.name %>'s profile.
+</h2>
+
+<p>
+	View <a href="/user/assignment_list/<%= @user.id %>">assignments</a> contributed by <%= @user.name %>?
+</p>
+<p>
+	Would you like to <a href="/user/change_name_form/<%= @user.id %>">update</a> <%= @user.name %>'s name?
+</p>
+<p>
+	Would you like to <a href="/user/confirm_delete_user/<%= @user.id %>">delete</a> <%= @user.name %> from database?
+</p>
+<p>
+	Return to <a href="/users_manager">User Manager?</a>
+</p>
+

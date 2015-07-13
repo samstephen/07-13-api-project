@@ -1,0 +1,18 @@
+<%= erb :"main/header" %>
+<h2>List of <%= @user.name %>'s Assignments</h2>
+
+<ul>
+  <% @user_assignments.each do |assignment| %>
+  
+	  <li><a href="/assignment/<%= assignment.id %>"><%= assignment.title %></a></li>
+	  <blockquote><%= assignment.description %></blockquote>
+	 
+  <% end %>
+</ul>
+
+
+<ul>
+	<li>Return to <a href="/user/<%= @user.id %>"><%= @user.name %>'s</a> profile?</li>
+	<li>Return to <a href="/users_manager">User Manager?</a></li>
+	<li>Return to <a href="/assignments_manager">Assignment Manager?</a></li>
+</ul>

@@ -8,11 +8,8 @@ document.getElementsByTagName('nav')[0].style.display = 'block';
 // hide nav
 //document.getElementsByTagName('nav')[0].style.display = 'none';
 
-
 var buttonNav = document.getElementById('nav');
 buttonNav.addEventListener('click', toggle);
-
-
 
 function toggle(){
     var navigation = document.getElementsByTagName('nav');
@@ -22,3 +19,16 @@ function toggle(){
         navigation[0].style.display = 'block';
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

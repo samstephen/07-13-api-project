@@ -41,6 +41,21 @@ class Contribute
 
     return results_as_objects
   end
+
+  def self.contributors_of_assignment(assignment_id)
+
+    results = CONNECTION.execute("SELECT * FROM contributes WHERE assignment_id = #{assignment_id}")
+
+    results_as_objects = []
+
+    results.each do |results_hash|
+      results_as_objects << self.new(results_hash)
+    end
+
+    return results_as_objects
+  end
+
+
 end
 
 

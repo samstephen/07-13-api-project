@@ -1,0 +1,17 @@
+<%= erb :"main/header" %>
+
+<h2>List of Assignments</h2>
+
+<ul>
+  <% Assignment.all.each do |assignment| %>
+      <li><a href="/assignment/<%= assignment.id %>"><%= assignment.title %></a></li>
+  <% end %>
+</ul>
+
+<p>
+	Return to <a href="/assignments_manager">Assignment Manager?</a>
+</p>
+
+
+<!-- the ruby tags provide ability to loop through the "users" table and display the name in each row -->
+<!-- The href="/user/<%# user.id %> will take the user back to the users.rb and route to: get "/user/:x" do -->

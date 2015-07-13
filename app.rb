@@ -11,7 +11,7 @@ require_relative 'database_setup.rb'
 require_relative 'models/user.rb'
 require_relative 'models/contribute.rb'
 require_relative 'models/assignment.rb'
-require_relative 'models/type.rb'
+require_relative 'models/resource-type.rb'
 require_relative 'models/resource.rb'
 
 # Controllers
@@ -21,6 +21,6 @@ require_relative 'controllers/assignments.rb'
 require_relative 'controllers/resources.rb'
 
 
-# create rows for types
-Type.add({ "id" => 1, "category" => "video" })
-Type.add({ "id" => 2, "category" => "article" })
+# create rows for resource_types
+ResourceType.add({ "id" => 1, "category" => "video" })
+ResourceType.add({ "id" => 2, "category" => "article" })

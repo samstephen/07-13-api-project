@@ -1,0 +1,11 @@
+<%= erb :"main/header" %>
+<!-- form to provide area to type new name for user, input stored in name="name" and used in: get "/change_user_name" do -->
+<h2>Change <%= @user.name %>'s name!</h2>
+<form action="/change_user_name">
+  <input type="hidden" name="x" value="<%= @user.id %>">
+	
+  <input value="<%= @user.name %>" type="text" name="name" placeholder="New name: ">
+
+  <input type="submit">
+</form>
+

@@ -42,6 +42,37 @@ module DatabaseClassMethods
 
 
 
+  # Add a new record to the database.
+  #
+  # options - hash
+  #
+  # Returns an Object.
+  def add_no_pk(options={})
+    table_name = self.to_s.pluralize.underscore
+
+    column_names = options.keys
+    values = options.values
+
+    individual_values = []
+
+    values.each do |value|
+      if value.is_a?(String)
+        individual_values << "'#{value}'"
+      else
+        individual_values << value
+      end
+    end
+
+    column_names_for_sql = column_names.join(", ")
+    individual_values_for_sql = individual_values.join(", ")
+
+    CONNECTION.execute("INSERT INTO #{table_name} (#{column_names_for_sql}) VALUES (#{individual_values_for_sql});")
+
+    self.new(options)
+  end
+
+
+
   # Get all of the rows for a table and convert hashes to objects
   #
   # Returns an Array containing Class objects.

@@ -6,7 +6,7 @@ class Assignment
   include DatabaseInstanceMethods
 
   attr_reader :id
-  attr_accessor :description, :repo
+  attr_accessor :title, :description, :repo
 
   # Initializes a new user object.
   #
@@ -27,6 +27,7 @@ class Assignment
 
   def initialize(options={})
     @id = options["id"]
+    @title = options["title"]
     @description = options["description"]
     @repo = options["repo"]
   end

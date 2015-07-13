@@ -1,0 +1,10 @@
+<%= erb :"main/header" %>
+<!-- message to user to confirm user was added -->
+
+<h2>User named <%= @new_user.name %> added!</h2>
+<ul>
+	<li><a href="/users/add_user_form">Add another?</a></li>
+	<a href="/user/<%= @new_user.id %>">View <%= @new_user.name %>'s profile?</a>
+	<li><a href="/users_manager">Return to User Manager?</a></li>
+	<li><a href="/home">Return to main menu?</a></li>
+</ul>
