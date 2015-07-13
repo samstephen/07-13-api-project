@@ -1,0 +1,63 @@
+html, body{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: grey;
+    font-family: 'Open Sans',sans-serif;
+}
+
+header {
+    background: #373b41;
+    border-color: #0a0a0a;
+    margin: 0 0 30px 0;
+    padding: 5px 0 0 0;
+    width: 100%;
+}
+
+h1 {
+    width: 100px;
+    margin: 0;
+}
+
+#nav {
+    top: 0;
+    right: 0;
+    position: absolute;
+    margin: 20px;
+}
+
+nav {
+    background: #0A0A0A;
+    text-align: center;
+    padding: 10px 0;
+    margin: 20px 0 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0 10px;
+    padding: 0;
+}
+
+nav li {
+    display: block;
+}
+
+nav a, nav a:visited {
+    color: #cf7777;
+}
+
+nav a {
+    font-weight: 800;
+    padding: 15px 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+div{
+    float: left;
+}
