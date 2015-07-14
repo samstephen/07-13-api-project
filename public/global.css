@@ -1,11 +1,8 @@
-html, body{
-    padding: 0;
-    margin: 0;
-}
-
 body {
-    background: grey;
-    font-family: 'Open Sans',sans-serif;
+    background:#EDEDED;
+    font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    color:#222;
+    font-size:16px;
 }
 
 header {
@@ -14,6 +11,20 @@ header {
     margin: 0 0 30px 0;
     padding: 5px 0 0 0;
     width: 100%;
+}
+
+div.wrapper {
+    position: relative;
+    float: none;
+
+    width:700px;
+    margin:30px auto;
+    border:1px solid silver;
+    background:white;
+
+    border-radius:0.3em;
+    box-shadow:0 0 5px rgba(0,0,0,0.3);
+    padding:20px;
 }
 
 h1 {
@@ -69,12 +80,7 @@ textarea{
     min-width: 100%;
     max-width: 100%;
 }
-body {
-    background:#EDEDED;
-    font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
-    color:#222;
-    font-size:16px;
-}
+
 
 h6 {
     text-align:center;

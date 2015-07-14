@@ -29,6 +29,22 @@ get "/api/assignments" do
 end
 
 
+
+# API of all assignments
+get "/api/contributes" do
+  contribute_list = Contribute.all
+
+  @contribute_array = []
+
+  contribute_list.each do |contribute|
+    @contribute_array << contribute.make_hash
+  end
+
+  json @contribute_array
+end
+
+
+
 # API of all resources
 get "/api/resources" do
   resource_list = Resource.all
