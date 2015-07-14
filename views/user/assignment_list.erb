@@ -2,7 +2,7 @@
 <h2>List of <%= @user.name %>'s Assignments</h2>
 
 <ul>
-  <% @user_assignments.each do |assignment| %>
+  <% @assignments_of_user.each do |assignment| %>
   
 	  <li><a href="/assignment/<%= assignment.id %>"><%= assignment.title %></a></li>
 	  <blockquote><%= assignment.description %></blockquote>

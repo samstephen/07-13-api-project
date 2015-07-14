@@ -56,13 +56,12 @@ end
 
 get "/user/assignment_list/:id" do
   @user = User.find(params[:id])
-  @user_contributes = Contribute.user_assignments(@user.id)
-  binding.pry
-  @user_assignments = []
-  @user_contributes.each do |a|
-  @user_assignments << Assignment.find(a.id)
+  @contributes = Contribute.user_assignments(@user.id)
+  @assignments_of_user = []
+  @contributes.each do |contribute|
+  @assignments_of_user << Assignment.find(contribute.assignment_id)
   end
-  erb :"assignment_list"
+  erb :"user/assignment_list"
 end
 
 # ---------------------------------------------------------------------
@@ -120,6 +119,10 @@ end
 get "/users/:webpage" do
   erb :"users/#{params["webpage"]}"
 end
+
+
+
+
 
 
 

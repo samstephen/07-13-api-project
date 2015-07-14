@@ -1,7 +1,6 @@
 require "pry"
 require "sinatra"
 require "sinatra/json"
-require "sinatra/reloader"
 
 # SQL/Database
 require "sqlite3"
@@ -19,6 +18,7 @@ require_relative "controllers/main.rb"
 require_relative "controllers/users.rb"
 require_relative 'controllers/assignments.rb'
 require_relative 'controllers/resources.rb'
+require_relative 'controllers/api_controller.rb'
 
 
 # create rows for resource_types
