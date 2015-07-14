@@ -1,0 +1,53 @@
+<%= erb :"main/header" %>
+<!-- show of assignment, can change assignment's info and delete assignment from options given in show -->
+
+<h2>
+	<%= @assignment.title %>
+</h2>
+
+<h4>
+	Assignment Contributors
+</h4>
+<p>
+  <% if (@contributors.length > 1) %>
+	The contributors of this <%= @assignment.title %> assignment are:
+  <% else %>
+	The contributor of this <%= @assignment.title %> assignment is:
+  <% end %>
+</p>
+
+<ul>
+  <% @contributors.zip @users %>
+  <% @contributors.zip(@users).each do |contributor, user| %>
+    <li>
+	  <a href="../user/<%= contributor.user_id %>">
+        <%= user.name %>
+   	  </a>
+    </li>
+  <% end %>
+</ul>
+
+<h4>
+	Assignment Description
+</h4>
+<blockquote>
+	<%= @assignment.description %>
+</blockquote>
+
+
+<p>
+	Would you like to <a href="/assignment/change_assignment_form/<%= @assignment.id %>">update</a> <%= @assignment.title %>?
+</p>
+
+<p>
+	Would you like to <a href="/assignment/confirm_delete_assignment/<%= @assignment.id %>">delete</a> <%= @assignment.title %> from database?
+</p>
+
+<p>
+	Return to <a href="/assignments_manager">Assignment Manager?</a>
+</p>
+
+
+
+
+

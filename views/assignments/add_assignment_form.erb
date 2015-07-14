@@ -1,35 +1,33 @@
 <%= erb :"main/header" %>
 <!-- form will go to /save_user and take input as params["name"] -->
 
-<h2>Make an Assignment</h2>
-
 <form method="post" action="/save_assignment">
-  Assignment's Title:
+  <h6>Make an Assignment</h6>
+  <label>Assignment's Title:</label>
   <br>
   <input type="text" name="title" placeholder="New title: ">
   <br><br>
 
-  Assignment's description:
+  <label>Assignment's description:</label>
   <br>
-  <TEXTAREA NAME="description" ROWS="3" COLS="25">
-	  
-  </TEXTAREA>
+  <TEXTAREA NAME="description"></TEXTAREA>
   <br><br>
 
-  URL of Assignment:
+  <label>URL of Assignment:</label>
   <br>
-  <TEXTAREA NAME="repo" ROWS="3" COLS="25">
+  <TEXTAREA NAME="repo"></TEXTAREA>
 
-  </TEXTAREA>
-
-  Select a User to assign to this Assignment
-
-  <select multiple="multiple" name="contributors[]">
+  <div class="radio-group">
+    <label>Select a User to assign to this Assignment</label>
+    <% i = 1 %>
     <% User.all.each do |user| %>
-    <option value="<%= user.id %>"><%= user.name %></option>
+    <div class="btn-container">
+      <input type="checkbox" name="contributors[]" multiple="multiple" id="checkbox-btn-2-<%= i %>" value="<%= user.id %>">
+      <label><%= user.name %></label>
+    </div>
+    <% i += 1 %>
     <% end %>
-  </select>
-
+  </div>
 
   <input type="submit">
 </form>

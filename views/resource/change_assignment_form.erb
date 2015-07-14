@@ -1,0 +1,41 @@
+<%= erb :"main/header" %>
+<!-- form to provide area to type new name for user, input stored in name="name" and used in: get "/change_user_name" do -->
+<h1>What would you like to change about <%= @recipe.title %>?</h1>
+<form method="post" action="/change_recipe">
+  <input type="hidden" name="x" value="<%= @recipe.id %>">
+  
+  Recipe's Title:
+  <br>
+  <input value="<%= @recipe.title %>" type="text" name="title" placeholder="New title: ">
+  <br><br>
+  
+  Published Date:
+  <br>
+  <input value="<%= @recipe.published_date %>" type="text" name="published_date" placeholder="New published_date: ">
+  <br><br>
+  
+  Recipe's Instructions:
+  <br>
+  <TEXTAREA NAME="content" ROWS="3" COLS="25">
+  <%= @recipe.content %>
+  </TEXTAREA>
+  <br><br>
+  
+  Author's ID:
+  <br>
+  <input value="<%= @recipe.user_id %>" type="number" name="user_id" placeholder="New user_id: ">
+  <br><br>
+  
+  Type of Meal:
+  <br>
+  <input value="<%= @recipe.meal_id %>" type="number" name="meal_id" placeholder="New meal_id: ">
+  <br><br>
+  
+  Tags:
+  <br>
+  <TEXTAREA NAME="tag" ROWS="3" COLS="25">
+
+  </TEXTAREA>
+  
+  <input type="submit">
+</form>

@@ -1,14 +1,48 @@
-get "/api/assignments" do
-  assign_list = Assignment.all_hash
 
-  @assign_array = []
 
-  assign_list.each do |assign|
-    @assign_array << assign.make_hash
+# API of all users
+get "/api/users" do
+  user_list = User.all
+
+  @user_array = []
+
+  user_list.each do |user|
+    @user_array << user.make_hash
   end
 
-  json @assign_array
+  json @user_array
 end
+
+
+
+# API of all assignments
+get "/api/assignments" do
+  assignment_list = Assignment.all
+
+  @assignment_array = []
+
+  assignment_list.each do |assignment|
+    @assignment_array << assignment.make_hash
+  end
+
+  json @assignment_array
+end
+
+
+# API of all resources
+get "/api/resources" do
+  resource_list = Resource.all
+
+  @resource_array = []
+
+  resource_list.each do |resource|
+    @resource_array << resource.make_hash
+  end
+
+  json @resource_array
+end
+
+
 
 get "/api/assignments/:id" do
   resource = Resource.all_from_assignment(params["id"])
@@ -41,15 +75,3 @@ get "/api/assignments/:id" do
   json @data_array
 end
 
-
-get "/api/resources" do
-  resource_list = Resource.all
-
-  @resource_array = []
-
-  resource_list.each do |rec|
-    @resource_array << rec.make_hash
-  end
-
-  json @resource_array
-end
