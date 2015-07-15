@@ -32,6 +32,11 @@ class Assignment
     @repo = options["repo"]
   end
 
+
+  def self.all_from_contributions(id)
+    hash_list = CONNECTION.execute("SELECT * FROM contributes WHERE assignment_id = #{id};")
+    return hash_list
+  end
 end
 
 

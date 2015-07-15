@@ -59,7 +59,6 @@ module DatabaseInstanceMethods
   # Returns the Object itself, along with syncing the row and Object
   def save
     CONNECTION.execute("UPDATE #{table_name} SET #{ready_for_sql(make_hash)} WHERE id = #{self.id}")
-
     return self
   end
 
@@ -88,7 +87,6 @@ module DatabaseInstanceMethods
   def make_hash
     variables = self.instance_variables
     attr_hash = {}
-
     variables.each do |var|
       attr_hash["#{var.slice(1..-1)}"] = self.send("#{var.slice(1..-1)}")
     end

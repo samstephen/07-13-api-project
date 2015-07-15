@@ -61,7 +61,7 @@ end
 
 # Step 2: provide form for user to type a new name for user.
 get "/assignment/change_assignment_form/:id" do
-  @recipe = Assignment.find(params[:id])
+  @assignment = Assignment.find(params[:id])
   erb :"assignment/change_assignment_form"
 end
 
@@ -95,7 +95,8 @@ end
 get "/assignment/delete_assignment/:id" do
   @assignment = Assignment.find(params[:id])
   Assignment.delete(@assignment.id)
-  # confirm user was deleted from db
+  @deletedvararr = Contribute.delete_contribution(@assignment.id)
+  # confirm assignment was deleted from db
   erb :"assignment/assignment_deleted"
 end
 

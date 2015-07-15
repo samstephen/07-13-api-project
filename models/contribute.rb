@@ -55,7 +55,9 @@ class Contribute
     return results_as_objects
   end
 
-
+  def self.delete_contribution(assignment_id)
+    CONNECTION.execute("DELETE FROM contributes WHERE assignment_id = #{assignment_id}")
+  end
 end
 
 
