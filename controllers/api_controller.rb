@@ -16,6 +16,24 @@ get "/api/users" do
   json @user_array
 end
 
+
+
+# Adds a new Assignment row to our assignments table in our database
+# Returns an Object, that we turn back into a Hash to pass to json.
+# An example of the address to use this api:
+# "/api/users/add/new?name=Sam-Stephen&email=samueljstephen@me.com&password=deadMau5"
+get "/api/users/add/:new" do
+  add_hash = {"name" => params["name"], "email" => params["email"], "password" => params["password"]}
+
+  new_user = User.add(add_hash)
+
+  @user_as_hash = new_user.make_hash
+
+  json @user_as_hash
+end
+
+
+
 #______________________________________________________________________________________________________________________#
 #                                                                                                                      #
 #                                                   ASSIGNMENTS                                                        #
@@ -128,4 +146,56 @@ get "/api/resources" do
   end
 
   json @resource_array
+end
+
+
+#______________________________________________________________________________________________________________________#
+#                                                                                                                      #
+#                                                    RESOURCES                                                         #
+#______________________________________________________________________________________________________________________#
+
+# API of all resources
+get "/api/resources" do
+  resource_list = Resource.all
+
+  @resource_array = []
+
+  resource_list.each do |resource|
+    @resource_array << resource.make_hash
+  end
+
+  json @resource_array
+end
+
+# Adds a new Assignment row to our assignments table in our database
+# Returns an Object, that we turn back into a Hash to pass to json.
+
+# An example of the address to use this api: id,type_id,assignment_id,post
+# "/api/resources/add/new?type_id=2&assignment_id=6&post=gmfholley.github.io/ruby/sinatra/orm/video/%60data_conversion%60/2015/06/28/data-conversion-video.html"
+get "/api/resources/add/:new" do
+  add_hash = {"type_id" => params["type_id"], "assignment_id" => params["assignment_id"], "post" => params["post"]}
+
+  new_resource = Resource.add(add_hash)
+
+  @resource_as_hash = new_resource.make_hash
+
+  json @resource_as_hash
+end
+
+
+#______________________________________________________________________________________________________________________#
+#                                                                                                                      #
+#                                                   ResourceType                                                       #
+#______________________________________________________________________________________________________________________#
+# API of all resource_types
+get "/api/resource_types" do
+  resource_type_list = ResourceType.all
+
+  @resource_type_array = []
+
+  resource_type_list.each do |resource_type|
+    @resource_type_array << resource_type.make_hash
+  end
+
+  json @resource_type_array
 end

@@ -4,8 +4,8 @@ require_relative "../database_instance_methods.rb"
 class User
   extend DatabaseClassMethods
   include DatabaseInstanceMethods
-
-  attr_accessor :id, :name
+  attr_reader :id
+  attr_accessor :name, :email, :password
 
   # Initializes a new user object.
   #
@@ -23,6 +23,8 @@ class User
   def initialize(options={})
     @id = options["id"]
     @name = options["name"]
+    @email = options["email"]
+    @password = options["password"]
   end
 
 end
